@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 
 import { Product, products } from '../products';
 import { CartService } from '../cart.service';
+import { Proveedor } from '../proveedor';
 
 @Component({
     selector: 'app-product-details',
@@ -11,7 +12,7 @@ import { CartService } from '../cart.service';
     standalone: false
 })
 export class ProductDetailsComponent implements OnInit {
-  
+  proveedor: Proveedor[] = [];
   product: Product | undefined;
 
   constructor(private route: ActivatedRoute, private cartService: CartService) { }
@@ -23,6 +24,10 @@ export class ProductDetailsComponent implements OnInit {
   
     // Find the product that correspond with the id provided in route.
     this.product = products.find(product => product.id === productIdFromRoute);
+
+    this.cartService.getProveedores().subscribe((e) =>{
+      this.proveedor =e;
+    })
   }
 
   addToCart(product: Product) {
