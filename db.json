@@ -1,0 +1,13 @@
+{
+    "proveedores": [
+        {
+            "nombre": "SAMSUNG"
+        },
+        {
+            "nombre": "IPHONE"
+        },
+        {
+            "nombre": "GOOGLE PIXEL"
+        }
+    ]
+}
