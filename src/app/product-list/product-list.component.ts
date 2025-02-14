@@ -3,12 +3,13 @@ import { Component } from '@angular/core';
 import { products } from '../products';
 import { Proveedor } from '../proveedor';
 import { CartService } from '../cart.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-product-list',
+  standalone: false,
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.css'],
-  standalone: false
 })
 export class ProductListComponent {
   products = [...products];

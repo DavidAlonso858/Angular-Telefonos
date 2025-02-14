@@ -29,8 +29,10 @@ export class CartService {
     return this.http.get<Proveedor[]>(this.url);
   }
 
-  getProductProvider(providerId: number): Product[] | undefined {
+  getProductProvider(providerId: number): Product[] {
     return products.filter(p => p.proveedor.id === providerId);
+    console.log(products);
+
     // se usa el array de products definido y lo filtro por la id que le paso del proveedor
   }
 

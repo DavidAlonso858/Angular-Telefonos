@@ -6,7 +6,7 @@
             {{ product.name }}
         </a>
     </h3>
-    <p *ngIf="product.description">{{ product.description }}</p>
+    <p >{{ product.description }}</p>
     <button type="button" (click)="share()">Share</button>
 
     <app-product-alerts [product]="product" (notify)="onNotify()"></app-product-alerts>
@@ -18,7 +18,8 @@
     <div *ngFor="let proveedor of proveedores">
         <hr>
         <h3>
-            <a [title]="proveedor.nombre" [routerLink]="['/productsProvider' , proveedor.id ]">
+            <!--ruta con el valor-->
+            <a [routerLink]="['/proveedor', proveedor.id]" [title]="proveedor.nombre">
                 {{ proveedor.nombre }}
             </a>
         </h3>

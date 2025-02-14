@@ -38,6 +38,16 @@ export const products = [
       "id": 2,
       "nombre": "IPHONE"
     }
+  },
+  {
+    id: 4,
+    name: 'Phone Prueba',
+    price: 999,
+    description: '',
+    proveedor: {
+      "id": 2,
+      "nombre": "IPHONE"
+    }
   }
 ];
 
