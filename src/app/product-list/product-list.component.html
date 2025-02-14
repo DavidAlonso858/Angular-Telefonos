@@ -18,7 +18,7 @@
     <div *ngFor="let proveedor of proveedores">
         <hr>
         <h3>
-            <a [title]="proveedor.nombre">
+            <a [title]="proveedor.nombre" [routerLink]="['/productsProvider' , proveedor.id ]">
                 {{ proveedor.nombre }}
             </a>
         </h3>

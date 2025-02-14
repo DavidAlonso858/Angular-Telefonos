@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Product } from './products';
+import { Product, products } from './products';
 import { Injectable } from '@angular/core';
 import { Proveedor } from './proveedor';
 
@@ -27,6 +27,11 @@ export class CartService {
 
   getProveedores() {
     return this.http.get<Proveedor[]>(this.url);
+  }
+
+  getProductProvider(providerId: number): Product[] | undefined {
+    return products.filter(p => p.proveedor.id === providerId);
+    // se usa el array de products definido y lo filtro por la id que le paso del proveedor
   }
 
   clearCart() {
