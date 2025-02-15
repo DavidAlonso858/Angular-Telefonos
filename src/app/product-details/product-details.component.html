@@ -1,8 +1,10 @@
 <h2>Product Details</h2>
-<div *ngIf="product">
-  <h3>{{ product.name }}</h3>
-  <h4>{{ product.price | currency }}</h4>
-  <p>{{ product.description }}</p>
-  <h5 class="fw-bold text-dark">{{ product.proveedor.nombre }}</h5>
-  <button type="button" (click)="addToCart(product)">Buy</button>
+<div *ngIf="product as p">
+  <h3 >{{ p.name }}</h3> <!--Poner las ? para evitar undefined-->
+
+  <p >{{ p.price }}</p>
+  
+  <p >{{ p.description }}</p>
+  <h5 class="fw-bold text-dark" >{{ p.proveedor?.nombre }}</h5>
+  <button type="button" (click)="addToCart(p)">Buy</button>
 </div>

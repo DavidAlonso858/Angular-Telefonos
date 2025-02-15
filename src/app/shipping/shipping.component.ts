@@ -7,7 +7,7 @@ import { CartService } from '../cart.service';
     selector: 'app-shipping',
     templateUrl: './shipping.component.html',
     styleUrl: './shipping.component.css',
-    standalone: false
+    standalone: true
 })
 export class ShippingComponent {
 

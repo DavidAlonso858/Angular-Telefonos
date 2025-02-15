@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder,ReactiveFormsModule } from '@angular/forms';
 
 import { CartService } from '../cart.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-cart',
+    standalone: true,
+    imports: [ReactiveFormsModule, CommonModule], // para usar el FormGroup
     templateUrl: './cart.component.html',
     styleUrl: './cart.component.css',
-    standalone: false
 })
 export class CartComponent {
 

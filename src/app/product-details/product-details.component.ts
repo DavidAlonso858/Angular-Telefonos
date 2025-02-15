@@ -4,12 +4,14 @@ import { ActivatedRoute } from '@angular/router';
 import { Product, products } from '../products';
 import { CartService } from '../cart.service';
 import { Proveedor } from '../proveedor';
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-product-details',
+    standalone: true,
+    imports: [CommonModule],
     templateUrl: './product-details.component.html',
     styleUrl: './product-details.component.css',
-    standalone: false
 })
 export class ProductDetailsComponent implements OnInit {
   proveedor: Proveedor[] = [];
@@ -31,6 +33,7 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   addToCart(product: Product) {
+    if (!product) return;
     this.cartService.addToCart(product);
     window.alert('Your product has been added to the cart!');
   }
