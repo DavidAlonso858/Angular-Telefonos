@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { Product, products } from '../products';
-import { CartService } from '../cart.service';
-import { Proveedor } from '../proveedor';
+import { Product, products } from '../../model/products';
+import { CartService } from '../../services/cart.service';
+import { Proveedor } from '../../model/proveedor';
 import { CommonModule } from '@angular/common';
 
 @Component({

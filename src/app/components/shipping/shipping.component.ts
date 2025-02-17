@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 
 import { Observable } from 'rxjs';
-import { CartService } from '../cart.service';
+import { CartService } from '../../services/cart.service';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'app-shipping',
     templateUrl: './shipping.component.html',
     styleUrl: './shipping.component.css',
-    standalone: true
+    standalone: true,
+    imports: [RouterModule, CommonModule] 
 })
 export class ShippingComponent {
 

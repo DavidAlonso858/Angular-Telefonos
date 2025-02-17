@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
-import { products } from '../products';
-import { Proveedor } from '../proveedor';
-import { CartService } from '../cart.service';
+import { products } from '../../model/products';
+import { Proveedor } from '../../model/proveedor';
+import { CartService } from '../../services/cart.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ProductAlertsComponent } from '../product-alerts/product-alerts.component';

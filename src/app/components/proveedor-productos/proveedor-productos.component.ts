@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CartService } from '../cart.service';
+import { CartService } from '../../services/cart.service';
 import { CommonModule } from '@angular/common';
-import { Product } from '../products';
+import { Product } from '../../model/products';
 
 @Component({
   selector: 'app-proveedor-productos',
