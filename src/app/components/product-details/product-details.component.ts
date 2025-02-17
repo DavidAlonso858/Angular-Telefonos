@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { Product, products } from '../../model/products';
@@ -13,20 +13,22 @@ import { CommonModule } from '@angular/common';
     templateUrl: './product-details.component.html',
     styleUrl: './product-details.component.css',
 })
-export class ProductDetailsComponent implements OnInit {
+
+export class ProductDetailsComponent  {
   proveedor: Proveedor[] = [];
   product: Product | undefined;
 
   constructor(private route: ActivatedRoute, private cartService: CartService) { }
 
   ngOnInit() {
-    // First get the product id from the current route.
+    //  Consigue la id de la ruta
     const routeParams = this.route.snapshot.paramMap;
     const productIdFromRoute = Number(routeParams.get('productId'));
   
-    // Find the product that correspond with the id provided in route.
+    // Encuentra el producto con la id de la ruta
     this.product = products.find(product => product.id === productIdFromRoute);
 
+    // almaceno el array del json de proveedores
     this.cartService.getProveedores().subscribe((e) =>{
       this.proveedor =e;
     })

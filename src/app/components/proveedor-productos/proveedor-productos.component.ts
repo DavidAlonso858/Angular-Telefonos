@@ -11,15 +11,19 @@ import { Product } from '../../model/products';
   templateUrl: './proveedor-productos.component.html',
   styleUrls: ['./proveedor-productos.component.css']
 })
-export class ProveedorProductosComponent implements OnInit {
+
+export class ProveedorProductosComponent {
   productosFiltrados: Product[] = [];
 
   constructor(private route: ActivatedRoute, private cartService: CartService) { }
 
   ngOnInit() {
+  // pilla la id de la ruta
     this.route.paramMap.subscribe(params => {
       const idProveedor = Number(params.get('id')); // Obtener el ID de la URL
+      // compruebo si hay productos con esa id
       this.productosFiltrados = this.cartService.getProductProvider(idProveedor);
     });
   }
+
 }

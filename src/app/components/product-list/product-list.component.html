@@ -2,13 +2,16 @@
 <div *ngFor="let product of products">
     <hr>
     <h3>
+        <!--Enlace dinamico con cada id del producto, el [title] muestra info emergente al pasar el raton-->
         <a [title]="product.name + ' details'" [routerLink]="['/products', product.id]">
             {{ product.name }}
         </a>
     </h3>
     <p >{{ product.description }}</p>
+    <!--Llama a la funcion que muestra el alert cuando se clicka-->
     <button type="button" (click)="share()">Share</button>
 
+    <!--Uso de un componente hijo-->
     <app-product-alerts [product]="product" (notify)="onNotify()"></app-product-alerts>
 </div>
 

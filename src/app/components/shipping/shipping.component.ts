@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 
 import { Observable } from 'rxjs';
 import { CartService } from '../../services/cart.service';
@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
     standalone: true,
     imports: [RouterModule, CommonModule] 
 })
+
 export class ShippingComponent {
 
   // La exclamación es una Aserción definitiva

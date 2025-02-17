@@ -7,6 +7,7 @@
   <span>{{ item.price}}</span>
 </div>
 
+<!--Parametros de formulario controlados en el ts con formBuilder (importar ReactiveFormsModule)-->
 <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
   <div>
     <label for="name">Name</label>

@@ -1,5 +1,6 @@
 <div class="productos">
     <h2>Productos del Proveedor</h2>
+    <!--Si existe se crea esto-->
     <div *ngIf="productosFiltrados.length > 0;">
         <ul>
             <li *ngFor="let producto of productosFiltrados"  class="fw-bold text-dark">

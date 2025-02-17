@@ -9,8 +9,12 @@ import { CommonModule } from '@angular/common';
     templateUrl: './product-alerts.component.html',
     styleUrl: './product-alerts.component.css',
 })
+
 export class ProductAlertsComponent {
 
+  // recibe un producto en el componente product-list
   @Input() product: Product | undefined;
+
+  // emite un evento (notify)
   @Output() notify = new EventEmitter();
 }
