@@ -9,13 +9,38 @@
 
 <!--Parametros de formulario controlados en el ts con formBuilder (importar ReactiveFormsModule)-->
 <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
+  
   <div>
     <label for="name">Name</label>
     <input id="name" type="text" formControlName="name">
+    <div *ngIf="checkoutForm.get('name')?.invalid && checkoutForm.get('name')?.touched" class="text-danger">
+      <!--La ? es de TypeScript y evita error de atributos que podrianser null o undefined-->
+      nombre requerido
   </div>
+  </div>
+  
   <div>
     <label for="address">Address</label>
     <input id="address" type="text" formControlName="address">
+    <div *ngIf="checkoutForm.get('address')?.invalid && checkoutForm.get('address')?.touched" class="text-danger">
+      <!--La ? es de TypeScript y evita error de atributos que podrianser null o undefined-->
+      la direccion es requerido
   </div>
-  <button class="button" type="submit">Purchase</button>
+  </div>
+
+  <div class="mt-2 mb-2">
+    <label for="shipping">Shipping</label>
+    <select id="shipping" formControlName="shipping" required>
+      <option value="">Select a shipping option</option>
+      <option *ngFor="let shipping of shippingCosts | async" [value]="shipping.type">
+        {{ shipping.type }} - {{ shipping.price | currency }}
+      </option>
+    </select>
+    <div *ngIf="checkoutForm.get('shipping')?.invalid && checkoutForm.get('shipping')?.touched" class="text-danger">
+      <!--La ? es de TypeScript y evita error de atributos que podrianser null o undefined-->
+      el empleado que le atienda es requerido
+  </div>
+  </div>
+
+  <button class="button" type="submit" [disabled]="checkoutForm.invalid">Purchase</button>
 </form>
