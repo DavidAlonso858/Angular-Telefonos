@@ -15,8 +15,9 @@ export class CartService {
 
   items: Product[] = [];
   // items: {product: Product, quantity: number }[] = [];
+
   private itemsSubject = new BehaviorSubject<Product[]>(this.items);
-  itemsObservable = this.itemsSubject.asObservable();
+  itemsObservable = this.itemsSubject.asObservable(); // para mostrar el numero a tiempo real
 
   constructor(private http: HttpClient) {
 
@@ -24,6 +25,7 @@ export class CartService {
   // agrego producto al array
   addToCart(product: Product) {
     this.items.push(product);
+    this.itemsSubject.next(this.items);
   }
 
   // devuelvo el array 
@@ -45,6 +47,7 @@ export class CartService {
   //vacio el array
   clearCart() {
     this.items = [];
+    this.itemsSubject.next(this.items); // se usa para que el subscribe tenga el cambio
     return this.items;
   }
 
