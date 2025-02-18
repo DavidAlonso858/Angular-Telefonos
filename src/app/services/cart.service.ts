@@ -17,7 +17,7 @@ export class CartService {
   // items: {product: Product, quantity: number }[] = [];
 
   private itemsSubject = new BehaviorSubject<Product[]>(this.items);
-  itemsObservable = this.itemsSubject.asObservable(); // para mostrar el numero a tiempo real
+  itemsObservable$ = this.itemsSubject.asObservable(); // para mostrar el numero a tiempo real
 
   constructor(private http: HttpClient) {
 

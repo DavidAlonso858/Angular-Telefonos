@@ -13,12 +13,13 @@ import { CommonModule } from '@angular/common';
 })
 
 export class TopBarComponent {
-    numberOfItems$: Observable<number>;
+    numberOfItems: number = 0; // Variable normal en lugar de un Observable
 
-    constructor(private cartService: CartService) {
-        this.numberOfItems$ = this.cartService.itemsObservable.pipe(
-            map(items => items.length)
-        );
+    constructor(private cartService: CartService) { }
+
+    ngOnInit() {
+        this.cartService.itemsObservable$.subscribe(items => {
+            this.numberOfItems = items.length; // Se actualiza cuando cambia el carrito
+        });
     }
-
 }
