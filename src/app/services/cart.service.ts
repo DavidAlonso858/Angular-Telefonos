@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Product, products } from '../model/products';
 import { Injectable } from '@angular/core';
 import { Proveedor } from '../model/proveedor';
+import { BehaviorSubject } from 'rxjs';
 
 // puede ser usada en cualquier sitio
 @Injectable({
@@ -14,6 +15,8 @@ export class CartService {
 
   items: Product[] = [];
   // items: {product: Product, quantity: number }[] = [];
+  private itemsSubject = new BehaviorSubject<Product[]>(this.items);
+  itemsObservable = this.itemsSubject.asObservable();
 
   constructor(private http: HttpClient) {
 
@@ -48,5 +51,14 @@ export class CartService {
   // carga un json de precios desde la carpeta assets
   getShippingPrices() {
     return this.http.get<{ type: string, price: number }[]>('/assets/shipping.json');
+  }
+
+  
+  removeFromCart(product: Product) {
+    const index = this.items.findIndex(item => item.id === product.id); 
+    if (index !== -1) {
+      this.items.splice(index, 1); // Borra el objeto
+      this.itemsSubject.next(this.items); // se usa para que el subscribe tenga el cambio
+    }
   }
 }

@@ -5,6 +5,7 @@ import { CartService } from '../../services/cart.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Observable } from 'rxjs';
+import { Product } from '../../model/products';
 
 @Component({
   selector: 'app-cart',
@@ -36,5 +37,12 @@ export class CartComponent {
     this.items = this.cartService.clearCart();
     console.warn('Your order has been submitted', this.checkoutForm.value);
     this.checkoutForm.reset();
+  }
+
+  removeItem(product: Product) {
+    this.cartService.removeFromCart(product);
+    // metodo del service para borrarlo
+
+    this.items = this.cartService.getItems();
   }
 }

@@ -5,27 +5,28 @@
 <div class="cart-item" *ngFor="let item of items">
   <span>{{ item.name }}</span>
   <span>{{ item.price}}</span>
+  <button (click)="removeItem(item)">Eliminar del Carrito</button>
 </div>
 
 <!--Parametros de formulario controlados en el ts con formBuilder (importar ReactiveFormsModule)-->
 <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()">
-  
+
   <div>
     <label for="name">Name</label>
     <input id="name" type="text" formControlName="name">
     <div *ngIf="checkoutForm.get('name')?.invalid && checkoutForm.get('name')?.touched" class="text-danger">
       <!--La ? es de TypeScript y evita error de atributos que podrianser null o undefined-->
       nombre requerido
+    </div>
   </div>
-  </div>
-  
+
   <div>
     <label for="address">Address</label>
     <input id="address" type="text" formControlName="address">
     <div *ngIf="checkoutForm.get('address')?.invalid && checkoutForm.get('address')?.touched" class="text-danger">
       <!--La ? es de TypeScript y evita error de atributos que podrianser null o undefined-->
       la direccion es requerido
-  </div>
+    </div>
   </div>
 
   <div class="mt-2 mb-2">
@@ -39,7 +40,7 @@
     <div *ngIf="checkoutForm.get('shipping')?.invalid && checkoutForm.get('shipping')?.touched" class="text-danger">
       <!--La ? es de TypeScript y evita error de atributos que podrianser null o undefined-->
       el empleado que le atienda es requerido
-  </div>
+    </div>
   </div>
 
   <button class="button" type="submit" [disabled]="checkoutForm.invalid">Purchase</button>
