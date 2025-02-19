@@ -3,6 +3,7 @@ import { Product, products } from '../model/products';
 import { Injectable } from '@angular/core';
 import { Proveedor } from '../model/proveedor';
 import { BehaviorSubject } from 'rxjs';
+import { Product2 } from '../model/producto2';
 
 // puede ser usada en cualquier sitio
 @Injectable({
@@ -12,6 +13,7 @@ import { BehaviorSubject } from 'rxjs';
 export class CartService {
 
   private url = 'http://localhost:3000/proveedores';
+  private url2 = 'http://localhost:3001/products';
 
   items: Product[] = [];
   // items: {product: Product, quantity: number }[] = [];
@@ -38,6 +40,10 @@ export class CartService {
     return this.http.get<Proveedor[]>(this.url);
   }
 
+  getProductos() {
+    return this.http.get<[Product2]>(this.url2);
+  }
+
   // se usa el array de products definido y lo filtro por la id que le paso del proveedor
   getProductProvider(providerId: number): Product[] {
     return products.filter(p => p.proveedor.id === providerId);
@@ -56,9 +62,9 @@ export class CartService {
     return this.http.get<{ type: string, price: number }[]>('/assets/shipping.json');
   }
 
-  
+
   removeFromCart(product: Product) {
-    const index = this.items.findIndex(item => item.id === product.id); 
+    const index = this.items.findIndex(item => item.id === product.id);
     if (index !== -1) {
       this.items.splice(index, 1); // Borra el objeto
       this.itemsSubject.next(this.items); // se usa para que el subscribe tenga el cambio

@@ -1,8 +1,28 @@
 {
-    "prueba": [
+    "products": [
         {
-            "id": 2,
-            "prueba1": "pruebaaaaaa"
+            "product_id": 2,
+            "product_name": "Phone mini",
+            "cost": 599,
+            "details": "A comapact phone with great perfomance"
+        },
+        {
+            "product_id": 1,
+            "product_name": "Phone XL",
+            "cost": 799,
+            "details": "A large phone with one of the best screens"
+        },
+        {
+            "product_id": 3,
+            "product_name": "Phone Standard",
+            "cost": 299,
+            "details": ""
+        },
+        {
+            "product_id": "4",
+            "product_name": "Phone Prueba",
+            "cost": 999,
+            "details": ""
         }
     ]
 }

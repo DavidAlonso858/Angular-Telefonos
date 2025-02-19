@@ -2,15 +2,15 @@
     "proveedores": [
         {
             "id": 1,
-            "nombre": "SAMSUNG"
+            "nombre": "SAMSUNGS"
         },
         {
             "id": 2,
-            "nombre": "IPHONE"
+            "nombre": "IPHONES"
         },
         {
             "id": 3,
-            "nombre": "GOOGLE PIXEL"
+            "nombre": "GOOGLE PIXELS"
         }
     ]
 }

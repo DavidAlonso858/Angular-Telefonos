@@ -1,11 +1,16 @@
 <h2>Product Details</h2>
 <!--Si el existe el producto encontrado por la id de la ruta se crea esto -->
 <div *ngIf="product as p">
-  <h3 >{{ p.name }}</h3> <!--Poner las ? para evitar undefined-->
+  <div *ngIf="origen3 as ori">
+    <section class="mt-2 mb-2 border shadow p-5">
+      <h3>{{ ori.product_name }}</h3> <!--Poner las ? para evitar undefined-->
 
-  <p >{{ p.price }}</p>
-  
-  <p >{{ p.description }}</p>
-  <h5 class="fw-bold text-dark" >{{ p.proveedor?.nombre }}</h5>
-  <button type="button" (click)="addToCart(p)">Buy</button>
+      <p>{{ ori.cost }}</p>
+
+      <p>{{ ori.details }}</p>
+      <h5 class="fw-bold text-dark">{{ p.proveedor?.nombre }}</h5>
+
+    </section>
+    <button type="button" (click)="addToCart(p)">Buy</button>
+  </div>
 </div>
